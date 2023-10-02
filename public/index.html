@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor | intro-component-with-signup-form-master</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-poppins">
+    <div class="w-full h-auto min-h-screen bg-Red bg-[url('../images/bg-intro-mobile.png')] flex flex-col p-4 lg:flex-row lg:items-center lg:justify-center">
+        <!-- intro section -->
+        <div class="mt-10 lg:mt-0">
+            <h1 class="text-white text-center text-3xl sm:text-4xl lg:text-start font-bold">Learn to code by <br> watching others</h1>
+            <!-- paragraph on mobile -->
+            <p class="mt-5 text-white text-center text-base lg:hidden">See how experienced developers solve <br> problems in real-time. Watching <br> scripted tutorials is great, but <br> understanding how developers think is <br> invaluable</p>
+            <!-- paragraph on desktop -->
+            <p class="mt-5 text-white text-start text-base hidden lg:block">See how experienced developers solve problems in real-time. <br> Watching scripted tutorials is great, but understanding how <br> developers think is invaluable</p>
+        </div>
+
+        <div class="hidden lg:block mx-8"></div>
+        <!-- form registration section -->
+        <div class="min-w-[340px] sm:min-w-[487px] h-[535px] mx-auto lg:mx-0 mt-12 mb-14 lg:scale-y-90">
+            <!-- button try free -->
+            <button class="w-full h-24 lg:h-14 bg-Blue rounded-xl shadow-lg flex items-center justify-center hover:bg-Blue/90 duration-200">
+                <h1 class="text-white text-lg text-center lg:hidden"><span class="font-bold">Try it free 7 days </span>then <br>$20/mo. thereafter</h1>
+                <h1 class="text-white text-base text-center hidden lg:block"><span class="font-bold">Try it free 7 days </span>then $20/mo. thereafter</h1>
+            </button>
+            <!-- form registration -->
+            <div class="translate-y-6 lg:translate-y-3 w-full h-auto bg-white rounded-xl">
+                <form action="#" class="w-full h-full p-6 grid grid-cols-1 gap-y-4 justify-around" novalidate>
+                    <!-- input section -->
+                    <div class="w-full h-14 relative">
+                        <input type="text" class="w-full h-14 rounded-md border border-grayishBlue pl-5 placeholder:font-semibold placeholder:text-grayishBlue font-semibold focus:outline-grayishBlue focus:outline-3 text-darkBlue" placeholder="First name">
+                        <svg class="icon-error hidden absolute top-4 right-5" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FF7979" cx="12" cy="12" r="12"/><rect fill="#FFF" x="11" y="6" width="2" height="9" rx="1"/><rect fill="#FFF" x="11" y="17" width="2" height="2" rx="1"/></g></svg>
+                    </div>
+                    <p class="hidden -my-3 md:-my-2 text-red-500 text-sm text-end">First name cannot be empty!</p>
+                    <div class="w-full h-14 relative">
+                        <input type="text" class="w-full h-14 rounded-md border border-grayishBlue pl-5 placeholder:font-semibold placeholder:text-grayishBlue font-semibold focus:outline-grayishBlue focus:outline-3 text-darkBlue" placeholder="Last name">
+                        <svg class="icon-error hidden absolute top-4 right-5" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FF7979" cx="12" cy="12" r="12"/><rect fill="#FFF" x="11" y="6" width="2" height="9" rx="1"/><rect fill="#FFF" x="11" y="17" width="2" height="2" rx="1"/></g></svg>
+                    </div>
+                    <p class="hidden -my-3 md:-my-2 text-red-500 text-sm text-end">Last name cannot be empty!</p>
+                    <div class="w-full h-14 relative">
+                        <input onchange="validateEmail()" id="email" type="email" class="w-full peer h-14 rounded-md border border-grayishBlue pl-5 placeholder:font-semibold placeholder:text-grayishBlue font-semibold focus:outline-grayishBlue focus:outline-3 text-darkBlue" placeholder="Email">
+                        <svg class="icon-error hidden absolute top-4 right-5" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FF7979" cx="12" cy="12" r="12"/><rect fill="#FFF" x="11" y="6" width="2" height="9" rx="1"/><rect fill="#FFF" x="11" y="17" width="2" height="2" rx="1"/></g></svg>
+                    </div>
+                    <p class="hidden -my-3 md:-my-2 text-red-500 text-sm text-end">Email cannot be empty!</p>
+                    <p class="hidden -my-3 md:-my-2 text-red-500 text-sm text-end">Insert a valid email!</p>
+                    <div class="w-full h-14 relative">
+                        <input type="password" class="w-full h-14 rounded-md border border-grayishBlue pl-5 placeholder:font-semibold placeholder:text-grayishBlue font-semibold focus:outline-grayishBlue focus:outline-3 text-darkBlue" placeholder="Password">
+                        <svg class="icon-error hidden absolute top-4 right-5" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FF7979" cx="12" cy="12" r="12"/><rect fill="#FFF" x="11" y="6" width="2" height="9" rx="1"/><rect fill="#FFF" x="11" y="17" width="2" height="2" rx="1"/></g></svg>
+                    </div>
+                    <p class="hidden -my-3 md:-my-2 text-red-500 text-sm text-end">Password cannot be empty!</p>
+                    <!-- button for submit -->
+                    <button id="btn-submit" onclick="validateInput()" type="submit" class="w-full h-14 rounded-md bg-Green hover:bg-Green/90 duration-200 text-white text-base flex items-center justify-center"><span class="text-center font-semibold uppercase drop-shadow-md">claim your free trial</span></button>
+                    <!-- terms and service -->
+                    <div class="w-full mx-auto h-10 flex items-center justify-center"><span class="text-grayishBlue text-sm text-center">By clicking the button, you are agreeing to <br> our <span class="font-semibold text-Red hover:underline underline-offset-1 duration-200 hover:cursor-pointer">Terms and Services</span></span></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btnSubmit = document.querySelector('#btn-submit');
+        const allInput = document.querySelectorAll('input');
+        
+
+        function validateInput()
+        {
+            allInput.forEach(input => {
+                let inputValue = input.value.trim();
+
+                if (inputValue == '') {
+                    input.parentElement.nextElementSibling.classList.remove('hidden');
+                    input.nextElementSibling.classList.remove('hidden')
+
+                    input.classList.remove('border-grayishBlue')
+                    input.classList.remove('placeholder:text-grayishBlue')
+                    input.classList.remove('focus:outline-grayishBlue')
+                    
+                    input.classList.add('border-red-500')
+                    input.classList.add('placeholder:text-red-500')
+                    input.classList.add('focus:outline-red-500')
+                    
+                    setTimeout(() => {
+                        input.parentElement.nextElementSibling.classList.add('hidden');
+                        input.nextElementSibling.classList.add('hidden')
+                        
+                        input.classList.remove('border-red-500')
+                        input.classList.remove('placeholder:text-red-500')
+                        input.classList.remove('focus:outline-red-500')
+
+                        input.classList.add('border-grayishBlue')
+                        input.classList.add('placeholder:text-grayishBlue')
+                        input.classList.add('focus:outline-grayishBlue')
+                    }, 4000);
+                }
+            });
+        }
+
+        function validateEmail() {
+            let email = document.querySelector('#email');
+            value = email.value;
+
+            if (!isValidEmail(value)) {
+                email.parentElement.nextElementSibling.nextElementSibling.classList.remove('hidden');
+
+                email.classList.remove('border-grayishBlue')
+                email.classList.remove('placeholder:text-grayishBlue')
+                email.classList.remove('focus:outline-grayishBlue')
+                
+                email.classList.add('border-red-500')
+                email.classList.add('placeholder:text-red-500')
+                email.classList.add('focus:outline-red-500')
+                email.classList.add('text-red-500')
+                
+                setTimeout(() => {
+                    email.parentElement.nextElementSibling.nextElementSibling.classList.add('hidden');
+                    
+                    email.classList.add('border-grayishBlue')
+                    email.classList.add('placeholder:text-grayishBlue')
+                    email.classList.add('focus:outline-grayishBlue')
+                    
+                    email.classList.remove('border-red-500')
+                    email.classList.remove('placeholder:text-red-500')
+                    email.classList.remove('focus:outline-red-500')
+                    email.classList.remove('text-red-500')
+
+                }, 4000);
+            }
+        }
+        
+        function isValidEmail(email) {
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailPattern.test(email);
+        }
+    </script>
+</body>
+</html>
